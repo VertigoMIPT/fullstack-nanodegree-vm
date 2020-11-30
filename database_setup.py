@@ -2,8 +2,8 @@ import sys
 
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-#from sqlalchemy.orm import relationship
-from sqlalchemy import create_engines
+from sqlalchemy.orm import relationship
+from sqlalchemy import create_engine
 
 Base = declarative_base()
 
@@ -13,7 +13,7 @@ class Restaurant(Base):
 	__tablename__ = 'restaurant'
 
 	name = Column(String(80), nullable = False)
-	id = Column(Inntteger, primary_key = True)
+	id = Column(Integer, primary_key = True)
 
 
 
@@ -31,6 +31,6 @@ class MenuItem(Base):
 
 engine = create_engine('sqlite:///restaurantmenu.db')
 
-Base.metadata.createall(engine)
+Base.metadata.create_all(engine)
 
 
